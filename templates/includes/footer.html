@@ -1,0 +1,68 @@
+{% load static %}
+
+<div class="wrapper">
+    <footer class="footer mt-30">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                    <div class="item_f1">
+                        <a href="#">About</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Careers</a>
+                        <a href="#">Press</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                    <div class="item_f1">
+                        <a href="{% url 'contact_us' %}">Help</a>
+                        
+                        <a href="{% url 'contact_us' %}">Contact Us</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                    <div class="item_f1">
+                        
+                        <a href="{% url 'terms_of_use' %}">Terms</a>
+                        <a href="{% url 'privacy_policy' %}">Privacy Policy</a>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-lg-12">
+                    <div class="footer_bottm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="fotb_left">
+                                    <li>
+                                        <a href="/">
+                                            <div class="footer_logo">
+                                                <img src="{% static 'images/logo1.svg' %}" alt="">
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <p>&copy; <span id="year"></span> <strong>Online Ourse</strong>. All Rights Reserved.</p>
+                                        <script>
+                                            document.getElementById("year").innerHTML = new Date().getFullYear();
+                                        </script>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="edu_social_links">
+                                    <a href="https://www.facebook.com/TunerPageCom"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <a href="https://www.youtube.com/channel/UCliYIbIjtI8QSlOUW1cmIpQ"><i class="fab fa-youtube"></i></a>
+                                    
+                                </div>
+                            </div>		
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </div>

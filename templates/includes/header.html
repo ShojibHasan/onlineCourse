@@ -1,0 +1,168 @@
+{% load static %}
+<header class="header clearfix">
+  <button type="button" id="toggleMenu" class="toggle_menu">
+    <i class="uil uil-bars"></i>
+  </button>
+  <button id="collapse_menu" class="collapse_menu">
+    <i class="uil uil-bars collapse_menu--icon"></i>
+    <span class="collapse_menu--label"></span>
+  </button>
+  <div class="main_logo" id="logo">
+    <a href="/"><img src="{% static 'images/logo.svg' %}" alt="" /></a>
+    <a href="/"
+      ><img class="logo-inverse" src="{% static 'images/ct_logo.svg' %}" alt=""
+    /></a>
+  </div>
+  <div class="top-category">
+    <div class="ui compact menu cate-dpdwn">
+      <div class="ui simple dropdown item">
+        <a href="#" class="option_links p-0" title="categories"
+          ><i class="uil uil-apps"></i
+        ></a>
+       
+      </div>
+    </div>
+  </div>
+  <div class="search120">
+    <div class="ui search">
+      <div class="ui left icon input swdh10">
+        <input
+          class="prompt srch10"
+          type="text"
+          placeholder="Search"
+        />
+        <i class="uil uil-search-alt icon icon1"></i>
+      </div>
+    </div>
+  </div>
+  <div class="header_right">
+    <ul>
+      
+
+      {% if user.is_authenticated %}
+      <li class="ui dropdown">
+        <a href="#" class="option_links" title="Messages"
+          ><i class="uil uil-envelope-alt"></i
+          ><span class="noti_count">0</span></a
+        >
+        <!-- <div class="menu dropdown_ms">
+          <a href="#" class="channel_my item">
+            <div class="profile_link">
+              <img src="images/left-imgs/img-6.jpg" alt="" />
+              <div class="pd_content">
+                <h6>Zoena Singh</h6>
+                <p>
+                  Hi! Sir, How are you. I ask you one thing please explain it
+                  this video price.
+                </p>
+                <span class="nm_time">2 min ago</span>
+              </div>
+            </div>
+          </a>
+          
+          
+        </div> -->
+      </li>
+      {% endif %} {% if user.is_authenticated %}
+      <li class="ui dropdown">
+        <a href="#" class="option_links" title="Notifications"
+          ><i class="uil uil-bell"></i><span class="noti_count">0</span></a
+        >
+        <!-- <div class="menu dropdown_mn">
+          <a href="#" class="channel_my item">
+            <div class="profile_link">
+              <img src="images/left-imgs/img-1.jpg" alt="" />
+              <div class="pd_content">
+                <h6>Rock William</h6>
+                <p>
+                  Like Your Comment On Video
+                  <strong>How to create sidebar menu</strong>.
+                </p>
+                <span class="nm_time">2 min ago</span>
+              </div>
+            </div>
+          </a>
+          <a href="#" class="channel_my item">
+            <div class="profile_link">
+              <img src="images/left-imgs/img-2.jpg" alt="" />
+              <div class="pd_content">
+                <h6>Jassica Smith</h6>
+                <p>
+                  Added New Review In Video
+                  <strong>Full Stack PHP Developer</strong>.
+                </p>
+                <span class="nm_time">12 min ago</span>
+              </div>
+            </div>
+          </a>
+          <a href="#" class="channel_my item">
+            <div class="profile_link">
+              <img src="images/left-imgs/img-9.jpg" alt="" />
+              <div class="pd_content">
+                <p>Your Membership Approved <strong>Upload Video</strong>.</p>
+                <span class="nm_time">20 min ago</span>
+              </div>
+            </div>
+          </a>
+          <a class="vbm_btn" href="instructor_notifications.html"
+            >View All <i class="uil uil-arrow-right"></i
+          ></a>
+        </div>  -->
+      </li>
+      {% endif %} {% if user.is_authenticated %}
+      <li class="ui dropdown">
+        <a href="#" class="opts_account" title="Account">
+          <img src="{% static 'images/hd_dp.jpg' %}" alt="" />
+        </a>
+        <div class="menu dropdown_account">
+          <!-- <div class="channel_my">
+            <div class="profile_link">
+              <img src="{{user.imageURL}}" alt="" />
+              <div class="pd_content">
+                <div class="rhte85">
+                  <h6>{{ user.student.name }}</h6>
+                  <div class="mef78" title="Verify">
+                    <i class="uil uil-check-circle"></i>
+                  </div>
+                </div>
+                <span>{{user.student.name}}</span>
+              </div>
+            </div>
+            <a href="#" class="dp_link_12"
+              >View Your Profile</a
+            >
+          </div> -->
+          
+          <a href="{% url 'enrolled_course' %}" class="item channel_item"
+            >{{user}}</a
+          >
+         
+          <a href="#" class="item channel_item">Setting</a>
+        
+          <a href="{% url 'logout' %}" class="item channel_item">Sign Out</a>
+        </div>
+      </li>
+      {% else %}
+      <li>
+        <a
+          href="{% url 'login' %}"
+          class="upload_btn"
+          title="Create New Course"
+          >Login</a
+        >
+      </li>
+      <li>
+        <a
+          href="{% url 'signup' %}"
+          class="upload_btn"
+          title="Create New Course"
+          >Sign up</a
+        >
+      </li>
+      
+
+      {% endif %}
+      
+    </ul>
+  </div>
+</header>

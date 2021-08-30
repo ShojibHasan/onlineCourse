@@ -1,0 +1,82 @@
+
+{% extends 'base.html' %}
+{% block title %} Signup | {{ block.super }} {% endblock %}
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+{% include 'includes/header.html' %}
+
+<!-- Signup Start -->
+<div class="sign_in_up_bg">
+    <div class="container">
+        <div class="row justify-content-lg-center justify-content-md-center">
+            <div class="col-lg-12">
+                <div class="main_logo25" id="logo">
+                    <br>
+                    <a href="/"><img src="{% static 'images/elearn-logo .svg' %}" alt=""></a>
+                    <a href="/"><img class="logo-inverse" src="{% static 'images/ct_logo.svg' %}" alt=""></a>
+                </div>
+            </div>
+        
+            <div class="col-lg-6 col-md-8">
+                <div class="sign_form">
+                    <h2>Welcome to E-learn Of TunerPage</h2>
+                    <p>Sign Up and Start Learning!</p>
+                    {% if messages %} {% for msg in messages %}
+                        <p style="color: red">{{ msg }}</p>
+                        <br />
+                    {% endfor %} {% endif %}
+                    <form action="{% url 'signup' %}" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+                        <div class="ui search focus">
+                            <div class="ui left input swdh11 swdh19">
+                                <input class="prompt srch_explore" type="text" name="fullname" value="" id="id_fullname" required="" maxlength="64" placeholder="Full Name">															
+                            </div>
+                        </div>
+                        <div class="ui search focus mt-15">
+                            <div class="ui left input swdh11 swdh19">
+                                <input class="prompt srch_explore" type="email" name="emailaddress" value="" id="id_email" required="" maxlength="64" placeholder="Email Address">															
+                            </div>
+                        </div>
+                        <div class="ui search focus mt-15">
+                            <div class="ui left input swdh11 swdh19">
+                                <input class="prompt srch_explore" type="password" name="password1" value="" id="id_password" required="" maxlength="64" placeholder="Password">															
+                            </div>
+                        </div>
+                        <div class="ui search focus mt-15">
+                            <div class="ui left input swdh11 swdh19">
+                                <input class="prompt srch_explore" type="password" name="password2" value="" id="id_password" required="" maxlength="64" placeholder="Password">															
+                            </div>
+                        </div>
+                        <div class="ui search focus mt-15">
+                            <div class="ui left input swdh11 swdh19">
+                                <input class="prompt srch_explore" type="number" name="phone" value="" id="id_password" required="" maxlength="64" placeholder="Phone Number">															
+                            </div>
+                        </div>
+                       
+                         
+                        <!-- <div class="ui form mt-30 checkbox_sign">
+                            <div class="inline field">
+                                <div class="ui checkbox mncheck">
+                                    <input type="checkbox" tabindex="0" class="hidden">
+                                    <label>I’m in for emails with exciting discounts and personalized recommendations</label>
+                                </div>
+                            </div>
+                        </div> -->
+                        <button class="login-btn" type="submit">Register</button>
+                    </form>
+                    <p class="sgntrm145">By signing up, you agree to our <a href="{% url 'terms_of_use' %}">Terms of Use</a> and <a href="{% url 'privacy_policy' %}">Privacy Policy</a>.</p>
+                    <p class="mb-0 mt-30">Already have an account? <a href="{% url 'login' %}">Log In</a></p>
+                </div>
+                <div class="sign_footer"><img src="{% static 'images/sign_logo.png' %}" alt="">&copy; <span id="year"></span> <strong>Elearn Tunerpage</strong>. All Rights Reserved.</div>
+					<script>
+						document.getElementById("year").innerHTML = new Date().getFullYear();
+					</script>
+            </div>				
+        </div>				
+    </div>				
+</div>
+<!-- Signup End -->	
+    
+{% endblock content %}
+    

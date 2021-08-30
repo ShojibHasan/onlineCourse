@@ -1,0 +1,71 @@
+
+{% extends 'base.html' %}
+{% block title %} Course List | {{ block.super }} {%endblock %} 
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+{% include 'includes/header.html' %}
+{% include 'includes/sidebar.html' %}
+
+	<!-- Body Start -->
+	<div class="wrapper">
+		<div class="sa4d25">
+			<div class="container-fluid">			
+				<div class="row">
+									
+					<div class="col-md-9">
+						<div class="_14d25 mb-20">						
+							<div class="row">
+								<div class="col-md-12">
+									<h4 class="mhs_title">All Courses</h4>
+
+
+                                    
+                                    {% for all in course %}
+                                        
+                                    
+                                        
+									<div class="fcrse_1">
+										<a href="{% url 'course_details' all.id %}" class="hf_img">
+											<img src="{{all.imageURL}}" alt="">
+											<div class="course-overlay">
+												<div class="badge_seller">Bestseller</div>
+												<div class="crse_reviews">
+													<i class="uil uil-star"></i>4.5
+												</div>
+												<span class="play_btn1"><i class="uil uil-play"></i></span>
+												<div class="crse_timer">
+													25 hours
+												</div>
+											</div>
+										</a>
+										<div class="hs_content">
+											
+											<div class="vdtodt">
+												
+												<span class="vdt14">{{all.updated_at|timesince}} ago</span>
+											</div>
+											<a href="{% url 'course_details' all.id %}" class="crse14s title900">{{all.name}}</a>
+											<a href="#" class="crse-cate">{{all.category}} | {{all.programming_language}}</a>
+											<div class="auth1lnkprce">
+												<p class="cr1fot">By <a href="#">{{all.instractor.name}}</a></p>
+												<div class="prce142">BDT {{all.offer_price}}</div>
+												<button class="shrt-cart-btn" title="cart"><i class="uil uil-shopping-cart-alt"></i></button>
+											</div>
+										</div>
+									</div>
+                                    {% endfor %}
+								
+								</div>									
+							</div>																		
+						</div>								
+					</div>				
+				</div>
+			</div>
+		</div>
+	
+	</div>
+	<!-- Body End -->
+
+{% endblock %}

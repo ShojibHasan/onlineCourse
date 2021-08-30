@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block title %} Course Details | {{ block.super }} {%endblock %} 
+{% load static %}
+{% load humanize %}
+{% load embed_video_tags %}
+{% block content %}
+{% include 'includes/header.html' %}
+{% include 'includes/sidebar.html' %}
+
+	<!-- Body Start -->
+	<div class="wrapper">
+		<div class="sa4d25">
+			<div class="container-fluid">			
+				<div class="row">
+									
+					<div class="col-md-9">
+						<div class="_14d25 mb-20">						
+							<div class="row">
+								<div class="col-md-12">
+									<h4 class="mhs_title">Your Registered Courses</h4>
+
+
+                                    
+                                    
+                                    {% if course %}
+                                        
+                                   
+                                        
+                                        
+                                    
+                                        
+									<div class="fcrse_1">
+										<a href="#" class="hf_img">
+											<img src="{{course.course_enrolled.imageURL}}" alt="">
+											<div class="course-overlay">
+												<div class="badge_seller">Bestseller</div>
+												<div class="crse_reviews">
+													<i class="uil uil-star"></i>4.5
+												</div>
+												<span class="play_btn1"><i class="uil uil-play"></i></span>
+												<div class="crse_timer">
+													25 hours
+												</div>
+											</div>
+										</a>
+										<div class="hs_content">
+											<a href="{% url 'course_details' course.course_enrolled.id %}" class="crse14s title900">{{course.course_enrolled}}</a>
+											<a href="#" class="crse-cate">{{course.course_enrolled.category}} | {{course.course_enrolled.programming_language}}</a>
+											<div class="auth1lnkprce">
+												<p class="cr1fot">By <a href="#">{{course.course_enrolled.instractor.name}}</a></p>
+												<div class="prce142">BDT {{course.course_enrolled.offer_price}}</div>
+												<button class="shrt-cart-btn" title="cart"><i class="uil uil-shopping-cart-alt"></i></button>
+											</div>
+										</div>
+									</div>
+                                    {% else %}
+                                    <p> You Have No Course</p>
+                                    {% endif %}
+
+								
+								</div>									
+							</div>																		
+						</div>								
+					</div>				
+				</div>
+			</div>
+		</div>
+	
+	</div>
+	<!-- Body End -->
+
+{% endblock %}
