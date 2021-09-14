@@ -3170,7 +3170,7 @@ i.icon2 {
 }
 
 .student_reviews {
-    float: left;
+    float: center;
     width: 100%;
     margin-top: 30px;
     margin-bottom: 20px;

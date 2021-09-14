@@ -16,6 +16,22 @@ class BatchNumberAdmin(admin.ModelAdmin):
     search_fields = ('name'),
     list_per_page = 20
 
+
+class CourseVideoAdmin(admin.StackedInline):
+    model = CourseVideo
+ 
+@admin.register(CourseContent)
+class CourseContentAdmin(admin.ModelAdmin):
+    inlines = [CourseVideoAdmin]
+ 
+    class Meta:
+       model = CourseContent
+ 
+@admin.register(CourseVideo)
+class CourseVideoAdmin(admin.ModelAdmin):
+    pass
+
+
 admin.site.register(Category)
 admin.site.register(BatchNumber,BatchNumberAdmin)
 admin.site.register(Coupon)

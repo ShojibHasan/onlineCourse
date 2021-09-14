@@ -45,7 +45,22 @@ class Course(models.Model):
             url = ''
         return url
 
+class CourseContent(models.Model):
+    course = models.ForeignKey(Course,on_delete=models.SET_NULL,blank=True,null=True)
+    title = models.CharField(max_length=500)
+    description = models.TextField(blank=True,null=True)
+    video = EmbedVideoField()
 
+    def __str__(self):
+        return self.course.name
+
+class CourseVideo(models.Model):
+    course_content = models.ForeignKey(CourseContent,default=None, on_delete=models.CASCADE)
+    title= models.CharField(max_length=500)
+    video = EmbedVideoField()
+
+    def __str__(self):
+        return self.course_content.title
 
 
 class Order(models.Model):
